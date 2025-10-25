@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <style>
+        .container {
+            font-family: sans-serif;  
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient( 105.9deg,  rgba(0,122,184,1) 24.4%, rgba(46,0,184,0.88) 80.5% );
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background-image: linear-gradient( 105.9deg,  rgb(81, 145, 177) 24.4%, rgba(115, 98, 165, 0.88) 80.5% );
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: rgba(24, 78, 128, 0.09) 0px 2px 1px, rgba(11, 74, 92, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;;
+        }
+
+        h1 {
+            font-size: 3rem;
+            background-color: #dfdfdfaa;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            background-color: #dfdfdf;
+            font-style: italic;
+        }
+
+        button:hover {
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        }
+
+        button:active {
+            background-color: blue;
+        }
+
+        @import url('https://fonts.googleapis.com/css?family=Roboto:700');
+
+        body {
+        margin:0px;
+        font-family:'Roboto';
+        text-align:center;
+        }
+
+        #container {
+        color:#999;
+        text-transform: uppercase;
+        font-size:36px;
+        font-weight:bold;
+        display: flex;
+        flex-direction: column;
+        justify-content:flex-start;
+        align-items: center;
+        }
+
+        #flip {
+        height:50px;
+        overflow:hidden;
+        }
+
+        #flip > div > div {
+        color:#fff;
+        padding:4px 12px;
+        height:45px;
+        margin-bottom:45px;
+        display:inline-block;
+        }
+
+        #flip div:first-child {
+        animation: show 5s linear infinite;
+        }
+
+        #flip div div {
+        background:#42c58a;
+        }
+        #flip div:first-child div {
+        background:#4ec7f3;
+        }
+        #flip div:last-child div {
+        background:#DC143C;
+        }
+
+        @keyframes show {
+        0% {margin-top:-270px;}
+        5% {margin-top:-180px;}
+        33% {margin-top:-180px;}
+        38% {margin-top:-90px;}
+        66% {margin-top:-90px;}
+        71% {margin-top:0px;}
+        99.99% {margin-top:0px;}
+        100% {margin-top:-270px;}
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id=container class="title">
+            Work
+            <div id=flip>
+                <div>
+                    <div>Smart</div>
+                </div>
+                <div>
+                    <div>Harder</div>
+                </div>
+                <div>
+                    <div>Not</div>
+                </div>
+            </div>
+        </div>
+        
+       <div class="card">
+        <h1 id="timer">25:00</h1>
+        
+        <div class="buttons">
+            <button id="start">Start</button>
+            <button id="pause">Pause</button>
+            <button id="reset">Reset</button>
+        </div>
+       </div>
+
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
