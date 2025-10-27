@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Link Collection Page</title>
+    <script src="https://kit.fontawesome.com/0303a573f3.js" crossorigin="anonymous"></script>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-image:url(./img/grabient-HQdgLAzANMCsAcIYDZnygWgAzAIwE5YZcstiIAmTHWEdbYCya4SpPXIvfJBrMKg1wgiuPFipisyQTiy4KQA-1761535077405.png);
+            background-repeat: no-repeat ;
+            background-size:cover;
+            background-position: center;
+            min-height: 100vh;
+            /* min-width: 370px; */
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* margin: 10px; */
+            /* padding: 10px; */
+            width: 100%;
+        }
+
+        .main-container h1 {
+            color: #000;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .cards-container {
+            display: flex;
+            /* flex-direction: column; */ /* bec of this:)) */
+            justify-content: center;
+            flex-wrap: wrap; 
+            /* gap: 20px; */
+        }
+
+        .card {
+            background-color: #dfdfdf;
+            margin: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* min-height: 250px; */
+            max-width: 80%;
+            border: none;
+            border-radius: 10px;
+            flex: 1 1 100%;
+            gap: 10px;
+
+        }
+        
+        img {
+            height: auto;
+            width: 90%;
+            border: none;
+            border-radius: 5px;
+        }
+
+        h4 i {
+            margin-right: 3px;
+        }
+
+        h4 {
+            color: rgba(23, 34, 66, 0.7);
+            font-weight: 500;
+            margin: 3px 0;
+        }
+        
+        .main-title {
+            font-size: 2.3rem;
+        }
+        .description-text {    
+            font-size: 1.5rem;
+            color: rgb(194, 208, 235);
+            margin: 20px 0;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            align-items: center;
+            background-color: rgba(38, 116, 234, 0.3);
+            border: none;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: rgba(12, 10, 143, 0.7);
+        }
+
+        .links {
+            display: flex;
+            padding: 10px;
+            gap: 12px;
+            flex-direction: column;
+
+        }
+
+        a > i {
+            margin-right: 2px;
+        }
+        
+        @media (min-width: 700px) {
+
+            /* .cards-container {
+                flex-direction: row;
+            } */
+
+            .card {
+                flex: 1 1 calc(50% - 40px);
+                max-width: calc(50% - 40px);
+                /* max-width: 600px; */
+
+            }
+
+            .links {
+                flex-direction: row;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .card {
+                flex: 1 1 calc(33.333% - 40px);
+                max-width: calc(33.333% - 40px);
+            }
+
+            .cards-container {
+                justify-content: flex-start;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="main-container">
+       <div class="hero">
+        <h1 class="main-title">Hello.. Welcome!</h1>
+        <h3 class="description-text">This web page is just for collecting links of web page demo, that I practice in this
+            JS-Small-Project Repository.</h3>
+       </div>
+        <h2>Project Links</h2>
+        <div class="cards">
+            <div class="cards-container">
+                <div class="first-card card">
+                    <img src="./img/pomodoro-timer.png" alt="pomodoro-timer-img" title="pomodoro-timer">
+                    <h4><i class="fa-solid fa-alarm-clock"></i>Pomodoro Timer</h4>
+                    <p>A simple pomodoro timer. Not contain special features. Just 25 minutes timer.</p>
+                    <div class="links">
+                        <a href="./pomodoro-timer/index.html"><i class="fa-solid fa-pager"></i>Live Demo</a>
+                        <a
+                            href="https://github.com/Ashmoon32/JavaScript-Small-Project/tree/8608b68880413fff56ce178923d19e7676dad35a/pomodoro-timer"><i
+                                class="fa-brands fa-github"></i>Github Repo</a>
+                    </div>
+                </div>
+                <div class="second-card card">
+                    <img src="./img/text-to-speech-generator.png" alt="text-to-speech-generator-img" title="text-to-speech-generator">
+                    <h4><i class="fa-solid fa-headphones"></i>Text to Speech Converter</h4>
+                    <p>Just an another simple project. I made this project by following tutorial from youtube channel known as
+                        <a href="https://www.youtube.com/@GreatStackDev">GreatStack.</a></p>
+                    <div class="links">
+                        <a href="./text-to-speech-generator/src/index.html"><i class="fa-solid fa-pager"></i></i>Live Demo</a>
+                        <a
+                            href="https://github.com/Ashmoon32/JavaScript-Small-Project/tree/8608b68880413fff56ce178923d19e7676dad35a/text-to-speech-generator"><i
+                                class="fa-brands fa-github"></i>GitHub Repo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</body>
+</html>
