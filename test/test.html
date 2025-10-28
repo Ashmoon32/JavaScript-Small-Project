@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #091994;
+            font-size: 1.2rem;
+            color: #fff;
+           cursor: pointer;
+        }
+
+
+        img {
+            border-radius: 10px;
+            border: 3px solid cadetblue;
+            box-shadow: 2px 2px 10px 5px rgb(61, 47, 151);
+        }
+
+        .girlImg {
+            width: 400px;
+            height: 500px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="../img/gyj1.jpg" alt="go-youn-jung-img"  class="girlImg">
+        <br>
+        <button>Click to Switch Images</button>
+    </div>
+
+    <script>
+        const button = document.querySelector("button");
+        const image = document.getElementsByClassName("girlImg")[0]; // return HTML Collection like array but can't use some arry properties
+        const originalImg = image.src;
+        const imgArray = [
+            "https://img.hankyung.com/photo/202505/BF.40396278.1.jpg",
+            "https://i.pinimg.com/736x/20/ab/25/20ab251725f3ecf4f0cfb55318e62633.jpg",
+            "https://i.pinimg.com/736x/5d/ab/8d/5dab8de0358438f9f27690f322d2bd77.jpg",
+            "https://i.pinimg.com/736x/b0/24/66/b024664eecc4ab25fe630f33434ea3c5.jpg",
+            "https://i.pinimg.com/736x/31/ef/4a/31ef4aea42d8cc5d75baac1cf052a5a5.jpg",
+            "https://i.pinimg.com/736x/3c/28/5c/3c285cd0189fe18d2a3be987de02a6e3.jpg",
+            "https://i.pinimg.com/736x/7b/ef/a5/7befa52a974fe92272ea364964c9229b.jpg",
+            "https://i.pinimg.com/736x/a5/aa/a3/a5aaa3179cbe42a8125bbb55bbe4868c.jpg",
+            "https://i.pinimg.com/1200x/98/32/ca/9832ca6acd15fe4fb33f1f5663338da9.jpg",
+            "https://i.pinimg.com/736x/aa/f2/dc/aaf2dc0f1a96a6c8bd0f6d5ff1b03789.jpg",
+            "https://i.pinimg.com/736x/70/22/38/70223891d8294ae57ec8a5a5dca6ce55.jpg",
+            "https://i.pinimg.com/736x/81/e7/75/81e77522a108531e3e22ca2b1758b32e.jpg",
+            "https://i.pinimg.com/1200x/18/18/fa/1818fa025759e6395cb335799a90a374.jpg",
+            "https://i.pinimg.com/736x/90/86/c0/9086c0ee0fdf6b93e41e7ef522fbbfd8.jpg",
+        ];
+
+        let counter = 0;
+        const myFunction  = () => {
+            if (counter >= imgArray.length) {
+                image.src = originalImg;
+                counter = 0;
+                return;
+            }
+            const imgLink = imgArray[counter];
+            image.src = imgLink;
+            counter += 1;
+            console.log("Counter value is:", counter );
+            
+        };
+
+        button.addEventListener("click", myFunction);
+    </script>
+</body>
+</html>
