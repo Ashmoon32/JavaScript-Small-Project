@@ -6,11 +6,18 @@ function shuffle(array) {
 }
 
 const gameContainer = document.querySelector(".game-container");
+const movesCounter = document.getElementById("moves");
+const timerDisplay = document.getElementById("timer");
+const restartBtn = document.getElementById("restart");
 
 let flippedCards = [];
 let matchedCards = [];
+let moves = 0;
+let time = 0;
+let timerInterval;
 
 function createCards() {
+    gameContainer.innerHTML = "";
     const shuffled = shuffle(cardsArray);
     shuffled.forEach(emoji => {
         const card = document.createElement("div");
@@ -22,23 +29,41 @@ function createCards() {
 
         card.addEventListener("click", () => flipCard(card));
     });
+
+
+ // Reset moves, timer, and matched cards
+  moves = 0;
+  time = 0;
+  movesCounter.textContent = "Moves: 0";
+  timerDisplay.textContent = "Time: 0s";
+  matchedCards = [];
+  flippedCards = [];
+
+  // Start timer
+  clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    time++;
+    timerDisplay.textContent = `Time: ${time}s`;
+  }, 1000);
 }
 
 
 function flipCard(card) {
-    if (
-        flippedCards.length < 2 &&
-        !flippedCards.includes(card) &&
-        !matchedCards.includes(card)
-    ) {
-        card.textContent = card.dataset.emoji;
-        card.classList.add("flipped");
-        flippedCards.push(card);
+  if (
+    flippedCards.length < 2 &&
+    !flippedCards.includes(card) &&
+    !matchedCards.includes(card)
+  ) {
+    card.textContent = card.dataset.emoji;
+    card.classList.add("flipped");
+    flippedCards.push(card);
 
-        if (flippedCards.length === 2) {
-            checkMatch();
-        }
+    if (flippedCards.length === 2) {
+      moves++;
+      movesCounter.textContent = `Moves: ${moves}`;
+      checkMatch();
     }
+  }
 }
 
 function checkMatch() {
@@ -60,9 +85,12 @@ function checkMatch() {
 }
 
 function checkWin() {
-    if (matchedCards.length === cardsArray.length) {
-        setTimeout(() => alert("You Win! 🎉"), 200);
-    }
+  if (matchedCards.length === cardsArray.length) {
+    clearInterval(timerInterval);
+    setTimeout(() => alert(`You Win! 🎉 Time: ${time}s, Moves: ${moves}`), 200);
+  }
 }
+
+restartBtn.addEventListener("click", createCards);
 
 createCards();

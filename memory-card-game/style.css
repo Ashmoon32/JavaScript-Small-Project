@@ -42,3 +42,17 @@ body {
     background: #8ef98e;
     cursor: default;
 }
+
+.controls {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-size: 18px;
+}
+
+#restart {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
